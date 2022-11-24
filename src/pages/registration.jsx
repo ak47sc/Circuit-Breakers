@@ -123,17 +123,6 @@ function Register()
                         }}/>
                     </Col>
                 </Form.Group>
-
-                <Form.Group as={Row} className="mb-3" controlId="formpassword">
-                    <Form.Label column sm={3}>
-                    </Form.Label>
-                    <Col sm={6}>
-                        <Form.Control type="password" placeholder="Re-Enter Password" onChange={(event)=>
-                        {
-                            setpassword(event.target.value);
-                        }}/>
-                    </Col>
-                </Form.Group>
                 
                 <Button variant="primary" type="submit">
                     Submit

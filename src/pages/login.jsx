@@ -55,7 +55,7 @@ function Login()
                 <h1 style={hstyle}>
                     LOGIN
                 </h1>
-                <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+                <Form.Group as={Row} className="mb-3" controlId="formEmail">
                     <Form.Label column sm={3}>
                     </Form.Label>
                     <Col sm={6}>
@@ -68,7 +68,7 @@ function Login()
 
                 <br></br>
 
-                <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+                <Form.Group as={Row} className="mb-3" controlId="formpassword">
                     <Form.Label column sm={3}>
                     </Form.Label>
                     <Col sm={6}>

@@ -1,7 +1,7 @@
 import Register from './pages/registration';
 import Login from './pages/login'
 import './App.css';
-import {BrowserRouter,Switch,Route} from 'react-router-dom';
+import {BrowserRouter,Switch,Route , Redirect} from 'react-router-dom';
 import CustomerDashboard from './pages/CustomerDashboard';
 import 'bootstrap/dist/css/bootstrap.css'
 import Customeraddjob from './pages/Customeraddjob';
@@ -12,6 +12,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Switch>
+        <Route exact path={"/"}>
+          <Redirect to={"/user/login"}/>
+        </Route>
         <Route path={"/user/signup"} exact>
           <Register/>
         </Route>

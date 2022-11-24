@@ -1,13 +1,17 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
-
+import '../App.css';
 function Display(props)
 {
     return (
         <li>
-            <div>
-            <p>ToDate:{props.data.toDate}</p>
-            <p>WagePerDay:{props.data.wagePerDay}</p>
+            <div style={{backgroundColor:'gray' , borderRadius:"25px"}}>
+            <p className="list-items">Job Description: {props.data.jobDescription}</p>
+            <p className="list-items">Job Location: {props.data.jobLocation}</p>
+            <p className="list-items">From Date: {props.data.fromDate}</p>
+            <p className="list-items">To Date: {props.data.toDate}</p>
+            <p className="list-items">WagePerDay: {props.data.wagePerDay}</p>
+            <p className="list-items">Phone number: {props.data.phoneNumber}</p>
             </div>
         </li>
     
@@ -38,9 +42,14 @@ function CustomerDashboard()
                 }
         }
     return(
-        <ul>
+        <>
+        <br></br>
+        <ul style={{listStyleType:"none"}}>
             {list}
+            <br></br>
         </ul>
+        </>
+        
         
     )
 }

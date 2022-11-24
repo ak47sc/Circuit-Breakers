@@ -13,6 +13,7 @@ function Customeraddjob()
     const [fromDate,setfromDate] = useState("");
     const [toDate,settoDate] = useState("");
     const [wagePerDay,setwagePerDay] = useState("");
+    const [phoneNumber,setphnum] = useState("");
 
     let history = useHistory();
 
@@ -26,11 +27,12 @@ function Customeraddjob()
             try{
                 await axios.post("http://localhost:8080/customer/addjob",
                 {
-                    JobDescription:JobDescription,
-                    JobLocation:JobLocation,
+                    jobDescription:JobDescription,
+                    jobLocation:JobLocation,
                     fromDate:fromDate,
                     toDate:toDate,
-                    wagePerDay:wagePerDay
+                    wagePerDay:wagePerDay,
+                    phoneNumber:phoneNumber
 
                 })
                 .then((Response)=>{
@@ -41,6 +43,7 @@ function Customeraddjob()
                 settoDate("");
                 setfromDate("");
                 setwagePerDay("");
+                setphnum("");
             }
             catch(err)
             {
@@ -106,9 +109,20 @@ function Customeraddjob()
                     <Form.Label column sm={3}>
                     </Form.Label>
                     <Col sm={6}>
-                        <Form.Control type="text" placeholder="Enter the wage per day" onChange={(event)=>
+                        <Form.Control type="number" placeholder="Enter the wage per day" onChange={(event)=>
                         {
                             setwagePerDay(event.target.value);
+                        }}/>
+                    </Col>
+                </Form.Group>
+
+                <Form.Group as={Row} className="mb-3" controlId="formphoneNumber">
+                    <Form.Label column sm={3}>
+                    </Form.Label>
+                    <Col sm={6}>
+                        <Form.Control type="number" placeholder="Enter Phone Number" onChange={(event)=>
+                        {
+                            setphnum(event.target.value);
                         }}/>
                     </Col>
                 </Form.Group>
