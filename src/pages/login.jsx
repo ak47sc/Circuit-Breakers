@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
@@ -12,7 +12,7 @@ function Login()
 {
     const [password,setpassword] = useState("");
     const [email,setemail] = useState("");
-    let history = useHistory();
+    let navigate = useNavigate();
     const hstyle = {color:'white' , backgroundColor:'black'}
 
     async function handleSubmit(event)
@@ -29,7 +29,7 @@ function Login()
                 .then((Response)=>{
                     if(Response.data !== "Password incorrect" && Response.data !== "Email not Exists")
                     {
-                        history.push(Response.data)
+                        navigate(Response.data)
                     }
                     else{
                         alert(Response.data);

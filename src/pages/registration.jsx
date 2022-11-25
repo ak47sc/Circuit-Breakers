@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -13,7 +13,7 @@ function Register()
     const [mobileNumber,setmobileNumber] = useState("");
     const [userRole,setuserrole] = useState("");
     const [username,setusername] = useState("");
-    let history = useHistory();
+    let navigate = useNavigate();
     const hstyle = {color:'white' , backgroundColor:'black'}
 
     async function handleSubmit(event)
@@ -33,7 +33,7 @@ function Register()
                 .then((Response)=>{
                     if(Response.data == "User Created successfully")
                     {
-                        history.push('/user/login')
+                        navigate('/user/login')
                     }
                     else{
                         alert(Response.data);
