@@ -1,0 +1,35 @@
+<BrowserRouter>
+      <Switch>
+        <Route exact path={"/"}>
+        </Route>
+
+        <Route path={"/user/signup"} exact>
+          <Register/>
+        </Route>
+
+        <Route path={"/user/login"} exact>
+          <Login/>
+        </Route>
+
+        <Route path={"/customer/dashboard"} exact>
+          <CustomerNavigation/>
+          <CustomerDashboard/>
+        </Route>
+
+        <Route path={"/customer/addjob"} exact>
+          <CustomerNavigation/>
+          <Customeraddjob/>
+        </Route>
+
+        <Route path={"/admin/profile"} exact>
+          <Adminnavigation/>
+          <Adminndashboard/>
+        </Route>
+
+        <Route path={"/admin/editJob/:data"} exact>
+          <Adminnavigation/>
+          <Admineditjobs/>
+        </Route>
+
+      </Switch>
+      </BrowserRouter>
