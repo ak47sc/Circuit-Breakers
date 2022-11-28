@@ -1,0 +1,5 @@
+package com.example.mainapp.models;
+
+public class JobseekerModel {
+
+}

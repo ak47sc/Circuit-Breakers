@@ -1,0 +1,20 @@
+package com.example.mainapp.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.mainapp.models.JobModel;
+import com.example.mainapp.repository.JobRepository;
+
+@Service
+public class JobService {
+	
+	@Autowired
+	private JobRepository jobRepo;
+	
+	public JobModel save(JobModel data)
+    {
+        return jobRepo.save(data);
+    }
+
+}
