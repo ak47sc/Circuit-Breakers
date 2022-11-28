@@ -1,19 +1,20 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
-function Adminnavigation() {
+function Jobseekernavigation() {
+  const location = useLocation();
   return (
     <>
-    <Navbar bg="dark" expand="lg" variant="dark">
+    <Navbar bg="light" expand="lg" variant="light">
       <Container>
-        <Navbar.Brand href="profile">Circuit Breakers</Navbar.Brand>
+        <Navbar.Brand href="dashboard">Circuit Breakers</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="profile">Openings</Nav.Link>
-            <Nav.Link href="candidates">Candidates</Nav.Link>
+            <Nav.Link href="dashboard">Home</Nav.Link>
+            <Nav.Link href="appliedjobs">Applied Jobs</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="/user/login">LOGOUT</Nav.Link>
@@ -26,4 +27,4 @@ function Adminnavigation() {
   );
 }
 
-export default Adminnavigation;
+export default Jobseekernavigation;

@@ -13,7 +13,7 @@ function Display(props)
 
     async function deleteJob(id){
         try{
-            await axios.put("http://localhost:8080/admin/deleteJob/"+id)
+            await axios.put("http://localhost:8080/jobseeker/deleteJob/"+id)
            .then((Response)=>{
             alert(Response.data);
            });
@@ -28,34 +28,33 @@ function Display(props)
     return (
         <li>
             <div style={{backgroundColor:'gray' , borderRadius:"25px"}}>
-            <p className="list-items">Job Description: {props.data.jobDescription}</p>
-            <p className="list-items">Job Location: {props.data.jobLocation}</p>
-            <p className="list-items">From Date: {props.data.fromDate}</p>
-            <p className="list-items">To Date: {props.data.toDate}</p>
-            <p className="list-items">WagePerDay: {props.data.wagePerDay}</p>
-            <p className="list-items">Phone number: {props.data.phoneNumber}</p>
+            <p className="list-items">Name of candidates: {props.data.personName}</p>
+            <p className="list-items">Phone number: {props.data.personPhone}</p>
+            <p className="list-items">Year of experience: {props.data.personExp}</p>
+            <p className="list-items">Address: {props.data.personAddress}</p>
+            <p className="list-items">Email: {props.data.personEmail}</p>
             <p><Button onClick={()=>{editLink()}}>edit</Button></p>
-            <p><Button onClick={()=>{deleteJob(props.data.jobId)}}>delete</Button></p>
+            <p><Button onClick={()=>{deleteJob(props.data.personId)}}>delete</Button></p>
             </div>
         </li>
     
     )
 }
 
-function Admindashboard()
+function AdminCandidates()
 {
     var[allJobs,setjobs] = useState([]);
     
     useEffect(()=>{getall()},[])
 
     const list = allJobs.map((emp)=>
-        <Display key={emp.jobId.toString()} data={emp} />
+        <Display key={emp.personId.toString()} data={emp} />
 
         );
     async function getall()
         {
             try{
-                 await axios.get("http://localhost:8080/admin/getAlljobs")
+                 await axios.get("http://localhost:8080/admin/profile")
                 .then((Response)=>{
                  setjobs(Response.data)
                 });
@@ -79,4 +78,4 @@ function Admindashboard()
 }
 
 
-export default Admindashboard
+export default AdminCandidates

@@ -1,9 +1,17 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
 import '../App.css';
+import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom";
+
 
 function Display(props)
-{
+{ 
+    const navigate = useNavigate();
+    const editLink = () =>{
+        navigate('/user/applyjob',{state:props.data})
+    }
+
     return (
         <li>
             <div style={{backgroundColor:'gray' , borderRadius:"25px"}}>
@@ -13,13 +21,14 @@ function Display(props)
             <p className="list-items">To Date: {props.data.toDate}</p>
             <p className="list-items">WagePerDay: {props.data.wagePerDay}</p>
             <p className="list-items">Phone number: {props.data.phoneNumber}</p>
+            <p><Button onClick={()=>{editLink()}}>Apply job</Button></p>
             </div>
         </li>
     
     )
 }
 
-function CustomerDashboard()
+function Jobseekerdasboard()
 {
     var[allJobs,setjobs] = useState([]);
     
@@ -56,4 +65,4 @@ function CustomerDashboard()
 }
 
 
-export default CustomerDashboard
+export default Jobseekerdasboard
