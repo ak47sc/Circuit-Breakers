@@ -41,7 +41,7 @@ public class JobseekerModel {
 	@Column(name="personEmail")
 	private String personEmail;
 	
-	@ManyToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.LAZY , cascade = CascadeType.MERGE)
 	@JoinTable(name = "jobs_jobseekers",
 	joinColumns = { @JoinColumn(name = "Jobseeker_id",referencedColumnName = "personId")},
 	inverseJoinColumns = { @JoinColumn(name="job_id" , referencedColumnName = "JobId") })

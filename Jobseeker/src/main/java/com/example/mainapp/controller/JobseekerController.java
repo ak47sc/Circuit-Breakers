@@ -18,7 +18,7 @@ import com.example.mainapp.service.JobSeekerService;
 import com.example.mainapp.service.JobService;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*" , allowedHeaders = "*")
 public class JobseekerController {
 	
 	@Autowired
@@ -29,9 +29,7 @@ public class JobseekerController {
 	
 	@PostMapping("/jobseeker/applyjob")
 	public String applyJob(@RequestBody JobseekerModel jobdata) {
-		
-		
-		
+		jobseekerservice.save(jobdata);
 		return "Job Apllied Successfully";
 	}
 	
@@ -49,9 +47,16 @@ public class JobseekerController {
 		if(check.isPresent())
 		{
 			jobseekerservice.deletebyId(check.get());
-			return "Job Deleted";
+			return "Candidate Deleted";
 		}
 		else 
-			return "Job Not Found";
+			return "Candidate Not Found";
 	}
+	
+	@PutMapping("/jobseeker/getbyid/{id}")
+	public JobseekerModel findById(@PathVariable int id)
+	{
+		return jobseekerservice.findbyId(id).get();
+	}
+	
 }

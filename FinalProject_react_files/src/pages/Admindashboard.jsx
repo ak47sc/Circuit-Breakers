@@ -13,7 +13,7 @@ function Display(props)
 
     async function deleteJob(id){
         try{
-            await axios.put("http://localhost:8080/admin/deleteJob/"+id)
+            await axios.put("http://localhost:8080/jobseeker/deleteJob/"+id)
            .then((Response)=>{
             alert(Response.data);
            });
@@ -34,8 +34,8 @@ function Display(props)
             <p className="list-items">To Date: {props.data.toDate}</p>
             <p className="list-items">WagePerDay: {props.data.wagePerDay}</p>
             <p className="list-items">Phone number: {props.data.phoneNumber}</p>
-            <p><Button onClick={()=>{editLink()}}>edit</Button></p>
-            <p><Button onClick={()=>{deleteJob(props.data.jobId)}}>delete</Button></p>
+            <p><Button className="list-button" onClick={()=>{editLink()}}>edit</Button></p>
+            <p><Button className="list-button" onClick={()=>{deleteJob(props.data.jobId)}}>delete</Button></p>
             </div>
         </li>
     

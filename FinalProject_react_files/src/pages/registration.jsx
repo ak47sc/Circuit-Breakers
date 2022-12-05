@@ -14,7 +14,6 @@ function Register()
     const [userRole,setuserrole] = useState("");
     const [username,setusername] = useState("");
     let navigate = useNavigate();
-    const hstyle = {color:'white' , backgroundColor:'black'}
 
     async function handleSubmit(event)
     {
@@ -58,7 +57,7 @@ function Register()
     return(
         <div>
             <form onSubmit={handleSubmit}>
-                <h1 style={hstyle}>
+                <h1 className="header">
                     REGISTER
                 </h1>
 
@@ -124,13 +123,11 @@ function Register()
                     </Col>
                 </Form.Group>
                 
-                <Button variant="primary" type="submit">
+                <Button className="list-button" variant="primary" type="submit">
                     Submit
                 </Button>
-
+                <span> Already a User? <a href="/user/login">LOGIN</a></span>
             </form>
-
-            <p>Already a User?<span><a href="/user/login">LOGIN</a></span></p>
 
         </div>
     )

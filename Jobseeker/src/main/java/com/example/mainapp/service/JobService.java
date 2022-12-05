@@ -27,6 +27,8 @@ public class JobService {
 		List<JobModel> jobs = new ArrayList<>();
         Streamable.of(jobRepo.findAll()).forEach(jobs::add);
         return jobs;
+		
+		//return (List<JobModel>) jobRepo.findAll();
 	}
 	
 	public boolean searchid(int id)
@@ -42,4 +44,5 @@ public class JobService {
 	{
 		return jobRepo.findById(id);
 	}
+	
 }

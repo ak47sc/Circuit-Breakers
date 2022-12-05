@@ -6,16 +6,6 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useLocation } from "react-router-dom";
 
-
-function json2array(json){
-    var result = [];
-    var keys = Object.keys(json);
-    keys.forEach(function(key){
-        result.push(json[key]);
-    });
-    return result;
-}
-
 function Jobseekerapplyjob(props)
 {
     const location = useLocation()
@@ -25,8 +15,6 @@ function Jobseekerapplyjob(props)
     const [personPhone, setpersonPhone] = useState("")
     const [personEmail, setpersonEmail] = useState("")
     const [jobdata, setjobdata] = useState(location.state)
-    const jobdetails = json2array(jobdata)
-    console.log(jobdetails)
     async function handleSubmit(event)
     {
         event.preventDefault();
@@ -35,12 +23,13 @@ function Jobseekerapplyjob(props)
             try{
                 await axios.post("http://localhost:8080/jobseeker/applyjob",
                 {
+                    personId:5,
                     personAddress:personAddress,
                     personEmail:personEmail,
                     personExp:personExp,
                     personName:personName,
                     personPhone:personPhone,
-                    jobmodel:jobdata
+                    jobmodel:[jobdata]
                 })
                 .then((Response)=>{
                     alert(Response.data);
@@ -134,7 +123,7 @@ function Jobseekerapplyjob(props)
                     </Col>
                 </Form.Group>
                 
-                <Button variant="primary" type="submit">
+                <Button className="list-button" variant="primary" type="submit">
                     Apply Job
                 </Button>
 

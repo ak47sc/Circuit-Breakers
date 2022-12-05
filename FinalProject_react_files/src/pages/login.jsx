@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { useAuth } from "../utils/auth";
 
 
 
@@ -12,8 +13,8 @@ function Login()
 {
     const [password,setpassword] = useState("");
     const [email,setemail] = useState("");
+    const auth = useAuth()
     let navigate = useNavigate();
-    const hstyle = {color:'white' , backgroundColor:'black'}
 
     async function handleSubmit(event)
     {
@@ -29,7 +30,12 @@ function Login()
                 .then((Response)=>{
                     if(Response.data !== "Password incorrect" && Response.data !== "Email not Exists")
                     {
-                        navigate(Response.data)
+                        const result = Response.data
+                        auth.login(result.Role)
+                        result.Role==="user"? navigate("/customer/dashboard"):
+                        result.Role==="Jobseeker"? navigate("/user/dashboard"):
+                        result.Role==="Admin"? navigate("/admin/profile"):
+                        console.log(result)
                     }
                     else{
                         alert(Response.data);
@@ -40,19 +46,19 @@ function Login()
             }
             catch(err)
             {
-                alert("Error sending requst.Try again later");
+                alert(err);
             }
         }
         else{
             alert("Credentials should not be empty")
         }
-        window.location.reload()
+        {/*window.location.reload()*/}
     }
     
     return(
         <div>
             <form onSubmit={handleSubmit}>
-                <h1 style={hstyle}>
+                <h1 className="header">
                     LOGIN
                 </h1>
                 <Form.Group as={Row} className="mb-3" controlId="formEmail">
@@ -83,13 +89,12 @@ function Login()
 
                 <Form.Group as={Row} className="mb-3">
                     <Col sm={{ span: 10, offset:  1}}>
-                        <Button type="submit">LOGIN</Button>
+                        <Button className="list-button" type="submit">LOGIN</Button>
+                        <span> NEW USER?<a href="/user/signup">Signup</a></span>
                     </Col>
                 </Form.Group>
 
             </form>
-
-            <p>NEW USER? <span><a href="/user/signup">Signup</a></span></p>
 
         </div>
     )

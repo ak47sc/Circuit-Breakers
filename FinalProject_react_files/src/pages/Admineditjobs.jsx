@@ -138,7 +138,7 @@ function Admineditjobs()
                     </Col>
                 </Form.Group>
                 
-                <Button variant="primary" type="submit">
+                <Button className="list-button" variant="primary" type="submit">
                     Update Job
                 </Button>
 

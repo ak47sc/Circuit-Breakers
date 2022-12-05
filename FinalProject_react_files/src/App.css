@@ -38,5 +38,18 @@
 }
 
 .list-items{
+  margin-left: 40%;
   font-weight: bold;
+}
+
+.list-button{
+  width: 30mm;
+  display: block;
+  margin-left: 43%;
+}
+
+.header{
+  background-color:black;
+  text-align: center;
+  color: white;
 }

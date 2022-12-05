@@ -50,7 +50,7 @@ function Customeraddjob()
         else{
             alert("Credentials should not be empty")
         }
-        window.location.reload()
+        {/*window.location.reload()*/}
     }
     return(
         <div>
@@ -124,7 +124,7 @@ function Customeraddjob()
                     </Col>
                 </Form.Group>
                 
-                <Button variant="primary" type="submit">
+                <Button className="list-button" variant="primary" type="submit">
                     Add Job
                 </Button>
 

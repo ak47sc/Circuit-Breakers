@@ -40,8 +40,8 @@ public class JobModel {
 	@Column(name = "phoneNumber")
 	private String phoneNumber;
 	
-	@ManyToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL ,mappedBy = "jobmodel")
-	private Collection<JobseekerModel> jobseeker;
+	/*@ManyToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL ,mappedBy = "jobmodel")
+	private Collection<JobseekerModel> jobseeker;*/
 
 	public int getJobId() {
 		return JobId;
@@ -99,16 +99,17 @@ public class JobModel {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public Collection<JobseekerModel> getJobseeker() {
+	/*public Collection<JobseekerModel> getJobseeker() {
 		return jobseeker;
 	}
 
 	public void setJobseeker(Collection<JobseekerModel> jobseeker) {
 		this.jobseeker = jobseeker;
-	}
-
-	public JobModel(String jobDescription, String jobLocation, String fromDate, String toDate, String wagePerDay,
-			String phoneNumber, Collection<JobseekerModel> jobseeker) {
+	}*/
+	
+	public JobModel(String jobDescription, String jobLocation, String fromDate, String toDate, 
+			String wagePerDay,
+			String phoneNumber) {
 		super();
 		JobDescription = jobDescription;
 		JobLocation = jobLocation;
@@ -116,11 +117,7 @@ public class JobModel {
 		this.toDate = toDate;
 		this.wagePerDay = wagePerDay;
 		this.phoneNumber = phoneNumber;
-		this.jobseeker = jobseeker;
 	}
-
-
-	
 
 	public JobModel() {
 		

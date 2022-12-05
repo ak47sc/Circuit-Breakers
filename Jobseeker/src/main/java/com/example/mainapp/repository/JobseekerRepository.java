@@ -8,5 +8,4 @@ import com.example.mainapp.models.JobseekerModel;
 
 @Repository
 public interface JobseekerRepository extends CrudRepository<JobseekerModel,Integer> {
-
 }

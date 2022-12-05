@@ -21,7 +21,7 @@ function Display(props)
             <p className="list-items">To Date: {props.data.toDate}</p>
             <p className="list-items">WagePerDay: {props.data.wagePerDay}</p>
             <p className="list-items">Phone number: {props.data.phoneNumber}</p>
-            <p><Button onClick={()=>{editLink()}}>Apply job</Button></p>
+            <p><Button className="list-button" onClick={()=>{editLink()}}>Apply job</Button></p>
             </div>
         </li>
     

@@ -39,12 +39,7 @@ public class AuthController {
 			return "Email not Exists";
 		}
 		else if(check.get().getPassword().equals(data.getPassword())) {
-			if(check.get().getUserRole().equalsIgnoreCase("User"))
-				return "/customer/dashboard";
-			else if(check.get().getUserRole().equalsIgnoreCase("Admin"))
-				return "/admin/profile";
-			else 
-				return "/user/dashboard";
+				return "{\"Role\":"+"\""+check.get().getUserRole()+"\"}";
 		}
 		else 
 			return "Password incorrect";

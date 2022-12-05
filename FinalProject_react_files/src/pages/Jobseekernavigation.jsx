@@ -2,9 +2,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet, useLocation } from 'react-router-dom';
+import { useAuth } from '../utils/auth'
 
 function Jobseekernavigation() {
-  const location = useLocation();
+  const location = useLocation()
+  const auth = useAuth()
   return (
     <>
     <Navbar bg="light" expand="lg" variant="light">
@@ -17,7 +19,7 @@ function Jobseekernavigation() {
             <Nav.Link href="appliedjobs">Applied Jobs</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="/user/login">LOGOUT</Nav.Link>
+            <Nav.Link href="/user/login" onClick={()=>{auth.logout()}}>LOGOUT</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -22,7 +22,6 @@ function Display(props)
        catch(err){
            alert("Cannot connect to server")
            }
-           
            window.location.reload();
     }
     return (
@@ -33,8 +32,8 @@ function Display(props)
             <p className="list-items">Year of experience: {props.data.personExp}</p>
             <p className="list-items">Address: {props.data.personAddress}</p>
             <p className="list-items">Email: {props.data.personEmail}</p>
-            <p><Button onClick={()=>{editLink()}}>edit</Button></p>
-            <p><Button onClick={()=>{deleteJob(props.data.personId)}}>delete</Button></p>
+            <p><Button className="list-button" onClick={()=>{editLink()}}>edit</Button></p>
+            <p><Button className="list-button" onClick={()=>{deleteJob(props.data.personId)}}>delete</Button></p>
             </div>
         </li>
     

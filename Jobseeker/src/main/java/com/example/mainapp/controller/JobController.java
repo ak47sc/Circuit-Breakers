@@ -33,13 +33,16 @@ public class JobController {
 	@GetMapping("/admin/getAlljobs")
 	public List<JobModel> getJob()
 	{
-		return jobService.getAll();
+		List<JobModel> jobs = jobService.getAll();
+		return jobs;
 	}
 	
 	@PutMapping("/admin/updateJob/{id}")
 	public String editJob(@RequestBody JobModel data , @PathVariable int id)
 	{
-		JobModel update = new JobModel(data.getFromDate(), data.getJobDescription(), data.getJobLocation(), data.getPhoneNumber(), data.getToDate(), data.getWagePerDay(),data.getJobseeker());
+		JobModel update = new JobModel(data.getJobDescription(),data.getJobLocation(),data.getFromDate(),data.getToDate(),data.getWagePerDay(),data.getPhoneNumber());
+		
+		update.setJobId(id);
 		
 		if(jobService.searchid(id))
 		{
